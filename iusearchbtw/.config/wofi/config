@@ -1,0 +1,9 @@
+configuration {
+  display-drun: "Applications";
+  display-window: "Windows";
+  drun-display-format: "{name}";
+  modi: "window,run,drun";
+  show-icons:true;
+}
+
+@import "/dev/null"

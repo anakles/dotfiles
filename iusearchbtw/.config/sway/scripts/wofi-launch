@@ -1,0 +1,4 @@
+#!/bin/bash
+
+/usr/bin/wofi --config $HOME/.config/wofi/config --color $HOME/.cache/wal/colors --show drun
+
