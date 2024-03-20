@@ -40,9 +40,8 @@ source "$HOME/.cache/wal/colors.sh"
 	--text-wrong-color "$color5" \
 	--text-ver-color "$color4" \
 	--separator-color 00000000 \
-	\
-	--grace 3 \
-	--fade-in 3 \
+	--grace 2 \
+	--fade-in 1 \
 	--effect-blur 10x10 \
 	--clock \
 	--datestr "%d %B %Y" \

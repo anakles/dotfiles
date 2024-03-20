@@ -51,6 +51,7 @@ window#waybar.hidden {
 }
 
 #memory,
+#disk,
 #cpu,
 #temperature,
 #custom-power,
@@ -95,6 +96,7 @@ window#waybar.hidden {
 }
 
 #memory,
+#disk,
 #cpu,
 #temperature {
   background-color: @color2;
@@ -138,7 +140,8 @@ window#waybar.hidden {
 }
 
 #clock,
-#custom-power
+#custom-power,
+#privacy
 {
   font-family: JetBrainsMono Nerd Font;
   background-color: @color1;
