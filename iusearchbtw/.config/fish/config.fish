@@ -10,24 +10,22 @@ status --is-login; and begin
 end
 
 function fish_greeting
-    source ~/.config/rdy/vars.fish
+    source /home/anakles/.config/rdy/vars.fish
 
     echo -e "\n = Hello anakles! =\n"
 
     # Case: all repos are clean
-    if test "$RDY_REPOS_DIRTY" = 0
+    if test "$RDY_DIRTY_REPOS" -eq 0
         echo -e "Your repos are up to date :)"
     end
     # Case: You have unpulled repos
-    if test "$RDY_REPOS_PULL" != 0
+    if test "$RDY_PULL_REPOS" -ne 0
         echo -e 'You have unpulled changes. Make sure to run "rdy".'
     end
     # Case: You have uncommited or unpushed changes
-    if test "$RDY_REPOS_PUSH" != 0 -o "$RDY_REPOS_COMMIT" != 0
+    if test "$RDY_PUSH_REPOS" -ne 0 -o "$RDY_COMMIT_REPOS" -ne 0
         echo -e 'You have uncommitted / unpushed changes. Make sure to save your work.'
     end
-
-    echo -e "\n"
 end
 
 if status is-interactive
