@@ -8,16 +8,15 @@
         "sway/workspaces"
     ],
     "modules-center": [
-        "clock",
-        "privacy"
+        "clock"
     ],
     "modules-right": [
         "tray",
         "idle_inhibitor",
+        "custom/rdy",
         "disk",
         "memory",
         "cpu",
-        "temperature",
         "network",
         "pulseaudio",
         "battery",
@@ -62,6 +61,7 @@
     },
     "cpu": {
         "format": "󰍛 {usage}%",
+        //tooltip disabled because it show like a gazillion cores
         "tooltip": false
     },
     "memory": {
@@ -83,7 +83,8 @@
     "clock": {
         "tooltip-format": "<tt>{calendar}</tt>",
         "format-alt": "  {:%a, %d %b %Y}",
-        "format": "  {:%I:%M %p}"
+        "format": "  {:%H:%M:%S}",
+        "interval": 1
     },
     "network": {
         "format-wifi" : "{icon}",
@@ -192,5 +193,10 @@
 			    "tooltip-icon-size": 24
 		    }
 	    ]
+    },
+    "custom/rdy": {
+      "format": "{}",
+      "interval": 10,
+      "exec": "$HOME/.config/sway/scripts/rdy_way.fish"
     }
 }
