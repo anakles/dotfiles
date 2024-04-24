@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 alpha='dd'
 background='#282a36'
@@ -14,7 +14,9 @@ cyan='#8be9fd'
 green='50fa7b'
 
 #Resize image:
-lockscreenimage="/home/nbetz/Pictures/Wallpapers/wp12470085-4k-blue-abstract-wallpapers.png"
+# lockscreenimage="/home/nbetz/Pictures/Wallpapers/wp12470085-4k-blue-abstract-wallpapers.png"
+
+source "/home/nbetz/.cache/wal/colors.sh"
 
 i3lock \
   --insidever-color=$selection$alpha \
@@ -50,5 +52,5 @@ i3lock \
   --pass-media-keys \
   --pass-screen-keys \
   --pass-volume-keys \
-  -t -i $lockscreenimage
-
+  --show-failed-attempts \
+  -t --image $wallpaper

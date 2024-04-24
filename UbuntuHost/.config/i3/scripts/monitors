@@ -19,10 +19,12 @@ send_notification()
 
 # The following order is important, as some cases detect monitors, that are available in all 3 configurationse:
 # Case: Office + HP Docking station
-if /usr/bin/xrandr | grep -q "DP2-3 connected"; then
+if /usr/bin/xrandr | grep -q "DP-2-3 connected"; then
   echo "Office monitors (HP Docking Station) detected. Setting configuration accordingly..."
 
-  /usr/bin/xrandr --output eDP1 --mode 1920x1080 --pos 3840x0 --rotate normal --output DP2-1 --off --output DP2-2 --mode 1920x1080 --pos 0x0 --rotate normal --output DP2-3 --primary --mode 1920x1080 --pos 1920x0 --rotate normal
+  # Old Dock:
+  # /usr/bin/xrandr --output eDP1 --mode 1920x1080 --pos 3840x0 --rotate normal --output DP2-1 --off --output DP2-2 --mode 1920x1080 --pos 0x0 --rotate normal --output DP2-3 --primary --mode 1920x1080 --pos 1920x0 --rotate normal
+  /usr/bin/xrandr --output eDP-1 --mode 1920x1080 --pos 3840x0 --rotate normal --output DP-2-2 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-2-3 --mode 1920x1080 --pos 0x0 --rotate normal
 
   send_notification "Your setup was configured for your HP docking station."
   set_wallpaper
@@ -30,7 +32,7 @@ if /usr/bin/xrandr | grep -q "DP2-3 connected"; then
 fi
 
 # Case: Home Office
-if /usr/bin/xrandr | grep -q "DP2-1 connected"; then
+if /usr/bin/xrandr | grep -q "DP-2-1 connected"; then
   echo "Home monitors detected. Setting configuration accordingly..."
 
  # /usr/bin/xrandr --output $home_front --mode 2560x1080 --primary --right-of $main_display --output $home_right --mode 2560x1080 --right-of $home_front

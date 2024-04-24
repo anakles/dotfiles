@@ -122,11 +122,11 @@ set $ws2 ""
 set $ws3 ""
 set $ws4 ""
 set $ws5 ""
-set $ws6 ""
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws6 ""
+set $ws7 ""
+set $ws8 ""
+set $ws9 ""
+set $ws10 ""
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -164,11 +164,15 @@ bindsym $mod+Shift+comma move workspace to output left
 # for_window [class="firefox"] move to workspace $ws1
 for_window [class="VirtualBox Machine" title=".*: 1"] move container to workspace $ws2
 for_window [class="VirtualBox Machine" title=".*: 2"] move container to workspace $ws1
-for_window [class="crx_cifhbcnohmdccbgoicgdjpfamggdegmo"] move to workspace $ws5
-# for_window [class="Chromium"] move to workspace $ws5
+for_window [class="VirtualBox Machine" title="*.V10_NBetz.*"] move container to workspace $ws5
+
+for_window [class="crx_cifhbcnohmdccbgoicgdjpfamggdegmo"] move to workspace $ws6
+# for_window [class="Chromium"] move to workspace $ws6
 for_window [class="org.remmina.Remmina"] move to workspace $ws5
 for_window [class="obsidian"] move to workspace $ws3
 for_window [class="keepassxc"] move to workspace $ws4
+for_window [class="Signal"] move to workspace $ws8
+for_window [class="Spotify"] move to workspace $ws7
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -207,13 +211,18 @@ bindsym $mod+r mode "resize"
 # Polybar:
 exec_always --no-startup-id /home/nbetz/.config/polybar/launch.sh
 # Apply theme
-exec_always --no-startup-id wal -R && picom -CGb
+# exec_always --no-startup-id wal -R; picom -CGb
+exec_always --no-startup-id wal -R
 
 # Always execute the script, that detects if the office monitor is connected:
 exec_always /home/$USER/.config/i3/scripts/monitors
 
 # Automatically connect to VLAN in Pentest Net (office-only)
 exec_always /home/$USER/.config/i3/scripts/connect_vlan
+
+# Autostart ActivityWatch:
+exec_always /opt/activityWatch/aw-qt
+
 
 # Assign workspaces to outputs
 workspace $ws1 output $home_front $office_front $main_display
@@ -236,13 +245,13 @@ client.focused_workspace #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
 # Overwriting the default dmenu
 bindsym $mod+d exec rofi -show drun
 bindsym $mod+Tab exec rofi -show window
+bindsym $mod+Shift+d exec $HOME/.config/i3/scripts/oscpasting.sh
 
 # ===== Gaps =====
 # Disabling the title bar:
 default_border pixel 0
-
-gaps inner 10px
-gaps outer 1px
+gaps inner 5px
+gaps outer 0px
 
 # ==== Custom Keybinds ====
 
@@ -260,11 +269,12 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 bindsym XF86Calculator exec gnome-calculator
 
 # Keybind for Bluetooth headset control:
-bindsym $mod+minus exec pactl set-card-profile bluez_card.00_1B_66_CE_7D_65 a2dp_sink
-bindsym $mod+Shift+minus exec pactl set-card-profile bluez_card.00_1B_66_CE_7D_65 handsfree_head_unit
+# OUTDATED:
+# bindsym $mod+minus exec pactl set-card-profile bluez_card.00_1B_66_CE_7D_65 a2dp_sink
+# bindsym $mod+Shift+minus exec pactl set-card-profile bluez_card.00_1B_66_CE_7D_65 handsfree_head_unit
 
 bindsym Print exec "flameshot gui"
 bindsym $mod+Control+e exec nautilus
 bindsym $mod+m exec /home/$USER/.config/i3/scripts/monitors
-
+bindsym $mod+Control+v exec $HOME/.config/i3/scripts/autotype.sh
 
