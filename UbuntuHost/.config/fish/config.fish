@@ -18,11 +18,18 @@ if status is-interactive
     abbr --add -- clip xclip -sel clip
     abbr --add -- jiggle ~/.config/i3/scripts/mouse.py
     abbr --add -- shared cd ~/SharedFolder/
+    abbr --add -- poly .config/polybar/launch.sh
+    abbr --add -- android-studio /opt/android-studio/bin/studio.sh
+
+    # Expert-Share configuration:
+    abbr --add -- expertshare "sudo mount -v -t cifs //expert-share.usd.de/kunden/ /media/expert-share/ -o username=nbetz,uid=1000,gid=1000,file_mode=0660,dir_mode=0770,vers=3.11,domain=USD;cd /media/expert-share"
+    abbr --add -- expertshare-unmount "sudo umount /media/expert-share"
 
     # Updating PATH variable
     set -U fish_user_paths $fish_user_paths ~/.local/bin ~/go/bin /home/nbetz/Scripts
     set -g fish_greeting
 
+    set -g EXPERT ~/.config/expert-share-helper/expert/
     # PyWal Color Scheme:
     # cat /home/nbetz/.cache/wal/sequences
 
