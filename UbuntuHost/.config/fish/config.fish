@@ -30,9 +30,19 @@ if status is-interactive
     set -g fish_greeting
 
     set -g EXPERT ~/.config/expert-share-helper/expert/
-    # PyWal Color Scheme:
-    # cat /home/nbetz/.cache/wal/sequences
 
+    # PyWal Color Scheme:
+    cat ~/.cache/wal/sequences
+
+    # For direnv:
+    direnv hook fish | source
+    set -g direnv_fish_mode disable_arrow
+
+    # Launch TMUX on shell start:
+    if status is-interactive
+        and not set -q TMUX
+        exec tmux
+    end
 end
 
 
