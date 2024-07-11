@@ -8,15 +8,16 @@
         "sway/workspaces"
     ],
     "modules-center": [
+        // "custom/rdy",
         "clock"
     ],
     "modules-right": [
         "tray",
         "idle_inhibitor",
-        "custom/rdy",
         "disk",
         "memory",
         "cpu",
+        "custom/keyboard_layout", 
         "network",
         "pulseaudio",
         "battery",
@@ -60,13 +61,13 @@
         //}
     },
     "cpu": {
-        "format": "󰍛 {usage}%",
+        "format": " {usage}%",
         //tooltip disabled because it show like a gazillion cores
         "tooltip": false
     },
     "memory": {
         "interval": 5,
-        "format": " {}%",
+        "format": " {}%",
         "max-length": 10
     },
     "temperature": {
@@ -147,7 +148,7 @@
                 "󰁹"
             ]
         },
-        "format-full": "Charged ",
+        "format-full": "Full ",
         "interval": 5,
         "states": {
             "warning": 20,
@@ -194,9 +195,16 @@
 		    }
 	    ]
     },
+
     "custom/rdy": {
       "format": "{}",
       "interval": 10,
       "exec": "$HOME/.config/sway/scripts/rdy_way.fish"
+    },
+    "custom/keyboard_layout": {
+      "format": "{}",
+      "exec": "$HOME/.config/sway/scripts/toggle_keyboard_layout.sh",
+      "interval": 2,
+      "on-click": "$HOME/.config/sway/scripts/toggle_keyboard_layout.sh toggle"
     }
 }
